@@ -13,7 +13,7 @@ class nosystem {
     table();
     }
     else if (option == 2) {
-Primeno();
+//Primeno();
     }
 
 
@@ -31,14 +31,14 @@ Primeno();
     }
     setectoption();
   }
-  void Primeno(){
+ /* void Primeno(){
     print("Entar a No");
     int a=int.parse(stdin.readLineSync().toString());
     int no=1;
     int forbhag=0;
     int count=1;
     int e=0;
-    while (i<10){
+
 
   while(no>forbhag){
 
@@ -53,7 +53,7 @@ Primeno();
     }e++;
 
 setectoption();
-  }
+  }*/
 
   }
 
