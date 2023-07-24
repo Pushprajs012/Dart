@@ -1,10 +1,9 @@
 
-
 import 'dart:io';
 import 'dart:math';
 void main(){
 var pro=progam();
-pro.findname();
+pro.BMI();
 
 }
 
@@ -114,6 +113,13 @@ class progam {
   void backwardsoder(){
     print("Enter Multiple Words");
     String name=stdin.readLineSync().toString();
+    List<String> aa=<String>[];
+
+    aa=name.split(" ");
+
+   print(aa.reversed.join(" "));
+
+
 
 
   }
@@ -135,7 +141,7 @@ class progam {
       }
     } print(list);
   }
-  
+
   void simpleintrest(){
     print("Enter Mooldhan");
     int mooldhan=int.parse(stdin.readLineSync().toString());
@@ -181,7 +187,7 @@ class progam {
 else {
   print("consonant");
     }  }
-  
+
   void areaofcircle(){
     const double pi = 3.1415926535897932;
     print("Enter radius of Circle");
@@ -197,8 +203,369 @@ print(a);
   }
 
   void findkeymap(){
-    Map<String,String> map={};
+    Map<String,String> map=Map();
+    map={"Name": "My Name",
+    "Phone" : "7088767698",
+    "Age":"15",
+      "Address":"XYZ"
+    };
+    map.removeWhere((key, value) => key.length !=4);
+    print(map);
 
   }
 
+  void secondlast(){
+    int sum=0,k=0;
+    print("Enter a NO");
+    int a=int.parse(stdin.readLineSync().toString());
+    for (int i=1;i<=a;i++){
+      int j=0;
+      sum=sum+i;
+      j=i*i;
+      k=k+j;
+
+    }
+    print(sum);
+    print(k);
+    print("Dono ka Antr ${((sum*sum)-k)}");
   }
+
+  void leapyear(){
+    bool leap=false;
+    print("Enter a Year");
+    int a=int.parse(stdin.readLineSync().toString());
+
+    if (a%100==0){
+      if(a%400==0){
+      leap = true;
+      }
+    }
+    else if(a%100!=0) {
+     if (a%4==0){
+       leap=true;
+     }
+     else leap=false;
+    }
+    print(leap);
+  }
+
+  void randomfour() {
+    int cow = 0;
+    int bull = 0;
+    int x = 0;
+
+    while (x!= 4) {
+      x=0;
+      int randomno = Random().nextInt(100) + 999;
+      String random = randomno.toString();
+      print("Guess One by one For Digit");
+      print(random);
+      int a = int.parse(stdin.readLineSync().toString());
+      int b = int.parse(stdin.readLineSync().toString());
+      int c = int.parse(stdin.readLineSync().toString());
+      int d = int.parse(stdin.readLineSync().toString());
+
+      int sa = int.parse(random[0]);
+      int sb = int.parse(random[1]);
+      int sc = int.parse(random[2]);
+      int sd = int.parse(random[3]);
+
+
+      print(a);
+
+
+      if (a == sa) {
+        cow++;
+        x++;
+        print(cow);
+      }
+      else {
+        bull++;
+      }
+      if (b == sb) {
+        cow++;
+        x++;
+
+        print(cow);
+      }
+      else {
+        bull++;
+      }
+      if (c == sc) {
+        cow++;
+        x++;
+
+        print(cow);
+      }
+      else {
+        bull++;
+      }
+      if (d == sd) {
+        cow++;
+        x++;
+
+        print(cow);
+      }
+      else {
+        bull++;
+      }
+
+      print("You have $cow cow and $bull bull");
+    }
+  }
+
+  void status(){
+    var a=grno();
+    int? no;
+    no=a.generaterRandom();
+    if (no==null){
+      print("No=0");
+    }
+    else
+      print("No=$no");
+
+  }
+
+void task(){
+  List<String> task = [];
+  int x=20;
+  while(x!=0) {
+    print(
+        "Press 1 or Add Task, 2. For Remove Task, 3 for view Task, 0 for exit");
+    int press = int.parse(stdin.readLineSync().toString());
+    if (press == 1) {
+      print("Enter Your Task");
+
+      String user = stdin.readLineSync().toString();
+      task.add(user);
+    } else if (press == 2) {
+      print("Kya remove krna h");
+      String user = stdin.readLineSync().toString();
+      if (task.contains(user)) {
+        task.remove(user);
+      }
+    }
+    else if (press == 3) {
+      print(task);
+    } else if (press == 0) {
+    x=0;
+    }
+  }
+}
+
+void splitammount(){
+    print("Enter Your Bill");
+    double bill=double.parse(stdin.readLineSync().toString());
+   print("Enter no of Friends");
+   int friends=int.parse(stdin.readLineSync().toString());
+    print("Split bill Ammount = ${(bill/friends)}");
+
+
+}
+
+void rockpaper() {
+  final String name;
+  int genrateno;
+  int users = 0,
+      cscore = 0;
+  print("Enter your Name");
+  name = stdin.readLineSync().toString();
+
+  for (int i = 0; i <= 5; i++) {
+    print("Enter 1 for Rock, 2 for Paper, 3 for Scissors");
+    int userno = int.parse(stdin.readLineSync().toString());
+    genrateno = Random().nextInt(3);
+    int genratecno = Random().nextInt(3);
+    if (userno > 0 && userno <= 3) {
+      if (userno == genrateno && genratecno == genrateno) {
+        print("Tie");
+        users++;
+        cscore++;
+        print("$name Score - $users Computer Score - $cscore");
+      }
+      else if (userno == genrateno) {
+        users++;
+        print("$name Win");
+        print("$name Score - $users Computer Spcre - $cscore");
+      } else if (genratecno == genrateno) {
+        cscore++;
+        print("Computer Win");
+        print("$name Score - $users Computer Spcre - $cscore");
+      }
+    }
+    else
+      print("Reenter Value");
+  }
+    if (users > cscore) {
+      print("$name Win. Score $users");
+    }
+    else
+      print("Computer Win. Score $cscore");
+
+}
+
+void BMI(){
+  final String name;
+  final int age;
+  double height, weight, finalbmi;
+  print("Enter Your Name");
+  name=stdin.readLineSync().toString();
+  print("Enter Your Age");
+  age=int.parse(stdin.readLineSync().toString());
+  print("Enter Your hight in meters");
+  height=double.parse(stdin.readLineSync().toString());
+  print("Enter Your weight");
+  weight=double.parse(stdin.readLineSync().toString());
+  var fbmi=Findbmi();
+  finalbmi=fbmi.findbmi(height, weight);
+
+  print("\t\t\t\t\t\t\t\t\t\ $name");
+  print("\t\t\t\t\t\t Your Age \t\t\t $age");
+  print("\t\t\t\t\t\t Your Hight \t\t $height");
+  print("\t\t\t\t\t\t Your Weightg \t\t $weight");
+  print("\t\t\t\t\t\t --------------------------");
+
+  if (finalbmi < 18.5)
+   print("\t\t\t\t\t\t $name Your Are underweight");
+
+  else if (finalbmi >= 18.5 && finalbmi < 24.9)
+   print("\t\t\t\t\t\t $name Your Are Healthy");
+
+  else if (finalbmi >= 24.9 && finalbmi < 30)
+   print("\t\t\t\t\t\t $name Your Areoverweight");
+
+  else if (finalbmi >= 30)
+   print("\t\t\t\t\t\t $name Your AreSuffering from Obesity");
+
+
+}
+
+
+
+
+  void gamehangman(){
+   var recall=Recall();
+    print("Yh ek bike compny h, jiske nam m 4 aknk h");
+    print("Guess one by one");
+
+    if (recall.a.isEmpty){
+     recall.re("a","h");
+     if (recall.b.isEmpty){
+       recall.re("b","e");
+       print(recall.b);
+     }
+     else {
+       if (recall.c.isEmpty) {
+         recall.re("c","r");
+       } else {
+         if (recall.d.isEmpty) {
+           recall.re("d","o");
+         }
+       }}
+     if (recall.c.isEmpty){
+       recall.re("c","r");
+     }
+     else {
+       if (recall.b.isEmpty) {
+         recall.re("b","e");
+       } else {
+         if (recall.d.isEmpty) {
+           recall.re("d","o");
+         }
+       }
+     }
+     if (recall.d.isEmpty){
+       recall.re("d","o");
+     }
+
+    }
+    else {
+      if (recall.b.isEmpty) {
+        recall.re("b","e");
+      } else {
+        if (recall.c.isEmpty) {
+          recall.re("c","r");
+        } else {
+          if (recall.d.isEmpty) {
+            recall.re("d","o");
+          }
+        }
+      }
+    }
+
+
+
+  }
+  }
+
+  class Recall{
+    final String Bike="Bike Compny";
+    String a="";
+    String b="";
+    String c="";
+    String d="";
+    int no=0;
+    int time=6;
+
+   void re(String list,String word) {
+      String aaa=word;
+      String bbb=list;
+        list = stdin.readLineSync().toString();
+        if (list.contains(word)) {
+          print("Aapne Shi Guess Kiya");
+        }
+        else {
+          if (word.contains("h")){
+            a="";
+          } else if (word.contains("e")){
+            b="";
+          }else if (word.contains("r")){
+            c="";
+          }else if (word.contains("o")){
+            d="";
+          }
+
+
+          no++;
+          time--;
+          print("App $no bar galt try kr chule h App $time bar or try kr skte h");
+          if (time >= 1) {
+            re(bbb, aaa);
+
+
+          }
+          else
+            print("error");
+
+
+
+
+      }
+
+    }
+}
+
+
+
+
+
+class grno{
+  int? generaterRandom(){
+    int randomno = Random().nextInt(100) - 9;
+    print(randomno);
+    if (randomno>0){
+    return 100;}
+    else
+      return
+          null;
+  }
+}
+
+class Findbmi{
+
+   findbmi(double h,double w){
+     double bmi=(w/(h*h));
+     return bmi;
+
+  }
+}
